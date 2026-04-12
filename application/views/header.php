@@ -400,9 +400,10 @@
                                 <ul class="sub-menu" aria-expanded="true">
                                     <li><a href="settings/banner">Banner</a></li>
                                 </ul>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="product">Product</a></li>
+                                </ul>
                             </li>
-               
-
                             <!-- <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="uim uim-window-grid"></i>

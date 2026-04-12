@@ -34,9 +34,7 @@ class Settings extends CI_Controller{
             $this->load->library('upload', $config);
             $this->upload->do_upload('bann_image');
             $post['bann_image'] = $this->upload->data('file_name');
-            print_r($post['bann_image']);
-            die;
-            $check = $this->SettingsModel->add_pincode($post);
+            $check = $this->SettingsModel->add_banner($post);
             if($check){
                 $this->session->set_flashdata('successMsg', 'Data inserted');
                 redirect('settings/banner');

@@ -73,6 +73,7 @@
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
+         
         <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/libs/metismenu/metisMenu.min.js"></script>
@@ -93,5 +94,21 @@
 
         <!-- App js -->
         <script src="assets/js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </body>
 </html>
+
+
+
+<script>
+    function get_categories(cate_id){
+        $.ajax({
+            url: "<?php echo base_url('category/get_sub_cate'); ?>",
+            method: "post",
+            data: {cate_id:cate_id},
+            success: function(data){
+                $('.subcat').html(data);
+            }
+        });
+    }
+</script>

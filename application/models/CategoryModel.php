@@ -20,8 +20,16 @@ class CategoryModel extends CI_Model{
             return $q->result();
         }
     }
+    public function get_sub_cate($cate_id){
+        $q = $this->db->where(['status'=>1, 'parent_id'=>$cate_id])->get('mjr_category');
+        if($q->num_rows()){
+            $output = '';
+             foreach($q->result() as $val){
+                $output.= '<option value="'.$val->cate_id.'" >'.$val->cate_name.'</option>';
+             }
+             echo $output;
+        }
+    }
 }
-
-
 
 ?>
