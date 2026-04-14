@@ -7,7 +7,7 @@ class Category extends CI_Controller{
         $this->load->model('CategoryModel');
     }
     public function index(){
-        $this->form_validation->set_rules('cate_name','category name', 'required|trim|min_length[4]');
+        $this->form_validation->set_rules('cate_name','category name', 'required|trim|min_length[3]');
         $this->form_validation->set_rules('status', 'status', 'required|trim');
         if($this->form_validation->run()){
             $post = $this->input->post();

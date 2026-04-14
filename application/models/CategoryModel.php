@@ -1,5 +1,5 @@
 <?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script allowed');
 
 class CategoryModel extends CI_Model{
     public function add_category($post){

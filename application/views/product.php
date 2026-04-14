@@ -1,4 +1,11 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); 
+if($this->session->userdata('pro_id')!=''){
+    $pro_id = $this->session->userdata('pro_id');
+}
+else{
+    $this->session->set_userdata('pro_id',mt_rand(11111,99999));
+}
+?>
 
 <!doctype html>
 <html lang="en">
@@ -55,28 +62,29 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" name="pro_id"  id="id" placeholder="Product Name">
-                                                        <label for="id">Product ID</label>
+                                                        <input type="number" class="form-control" readonly id="p_id" name="pro_id" value="<?php echo set_value('pro_id', $pro_id); ?>" placeholder="Product ID">
+                                                        <label for="p_id">Product ID</label>
                                                         <?php echo form_error('pro_id', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-select" onchange="get_categories(this.value)" name="category" id="floatingSelectGrid">
+                                                        <select class="form-select" onchange="get_categories(this.value)" name="category" id="cate">
                                                             <option selected disabled>Select Category</option>
                                                             <?php foreach($categories as $val): ?>
                                                                 <option value="<?php echo $val->cate_id; ?>"><?php echo $val->cate_name; ?></option>
                                                                 <?php endforeach; ?>
                                                         </select>
-                                                        <label for="floatingSelectGrid">Category</label>
+                                                        <label for="cate">Category</label>
+                                                        <?php echo form_error('category','<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-select subcat" name="sub_category" id="floatingSelectGrid">
+                                                        <select class="form-select subcat" name="sub_category" id="sub_cate">
                                                             <option selected disabled>Select Sub Category</option>
                                                         </select>
-                                                        <label for="floatingSelectGrid">Sub Category</label>
+                                                        <label for="sub_cate">Sub Category</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -95,68 +103,68 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-select" name="featured" id="floatingSelectGrid" >
+                                                        <select class="form-select" name="featured" id="feature" >
                                                             <option selected disabled>Select featured</option>
                                                             <option value="1">Deal of the Month</option>
                                                             <option value="0">New arrival</option>
                                                         </select>
-                                                        <label for="floatingSelectGrid">Featured</label>
+                                                        <label for="feature">Featured</label>
                                                         <?php echo form_error('featured', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <textarea class="form-control" name="highlights" id="floatingSelectGrid" ></textarea>
-                                                        <label for="floatingSelectGrid">Highlights</label>
+                                                        <textarea class="form-control" name="highlights" id="high" ></textarea>
+                                                        <label for="high">Highlights</label>
                                                         <?php echo form_error('highlights', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <textarea class="form-control" name="description" id="floatingSelectGrid" ></textarea>
-                                                        <label for="floatingSelectGrid">Description</label>
+                                                        <textarea class="form-control" name="description" id="desc" ></textarea>
+                                                        <label for="desc">Description</label>
                                                         <?php echo form_error('description', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" name="stock"  id="id" placeholder="Product Name">
-                                                        <label for="id">Product Stock</label>
+                                                        <input type="number" class="form-control" name="stock"  id="stk" placeholder="Product Name">
+                                                        <label for="stk">Product Stock</label>
                                                         <?php echo form_error('stock', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" name="mrp"  id="id" placeholder="Product Name">
-                                                        <label for="id">Product MRP</label>
+                                                        <input type="number" class="form-control" name="mrp"  id="m_r_p" placeholder="Product Name">
+                                                        <label for="m_r_p">Product MRP</label>
                                                         <?php echo form_error('mrp', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" name="selling_price"  id="id" placeholder="Product Name">
-                                                        <label for="id">Product Selling Price</label>
+                                                        <input type="number" class="form-control" name="selling_price"  id="sell" placeholder="Product Name">
+                                                        <label for="sell">Product Selling Price</label>
                                                         <?php echo form_error('selling_price', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <textarea class="form-control" name="meta_title" id="floatingSelectGrid" ></textarea>
-                                                        <label for="floatingSelectGrid">Meta Title</label>
+                                                        <textarea class="form-control" name="meta_title" id="mtitle" ></textarea>
+                                                        <label for="mtitle">Meta Title</label>
                                                         <?php echo form_error('meta_title', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <textarea class="form-control" name="meta_keywords" id="floatingSelectGrid" ></textarea>
-                                                        <label for="floatingSelectGrid">Meta Keywords</label>
+                                                        <textarea class="form-control" name="meta_keywords" id="mkey" ></textarea>
+                                                        <label for="mkey">Meta Keywords</label>
                                                         <?php echo form_error('meta_keywords', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <textarea class="form-control" name="meta_desc" id="floatingSelectGrid" ></textarea>
-                                                        <label for="floatingSelectGrid">Meta Description </label>
+                                                        <textarea class="form-control" name="meta_desc" id="mdesc" ></textarea>
+                                                        <label for="mdesc">Meta Description </label>
                                                         <?php echo form_error('meta_desc', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
@@ -169,28 +177,20 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="file" class="form-control" name="gallery_image"  id="pin" placeholder="Gallery Image">
-                                                        <label for="pin">Product Gallery Image</label>
+                                                        <input type="file" class="form-control" name="gallery_image"  id="gallery" placeholder="Gallery Image">
+                                                        <label for="gallery">Product Gallery Image</label>
                                                         <?php echo form_error('gallery_image', '<div class="text-danger">*', '</div>') ?>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" name="brand"  id="brand1" placeholder="Product Brand">
-                                                        <label for="brand1">Product Brand</label>
-                                                        <?php echo form_error('brand', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
                                                 <!-- <?php form_error('cate_name', '<div class="text-danger">*', '</div>') ?> -->
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-select" name="status" id="floatingSelectGrid" >
+                                                        <select class="form-select" name="status" id="sts" >
                                                             <option selected disabled>Select Status</option>
                                                             <option value="1">Active</option>
                                                             <option value="0">Deactive</option>
                                                         </select>
-                                                        <label for="floatingSelectGrid">Status</label>
+                                                        <label for="sts">Status</label>
                                                         <?php echo form_error('status', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
