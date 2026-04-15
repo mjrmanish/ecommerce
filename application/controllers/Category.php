@@ -13,7 +13,7 @@ class Category extends CI_Controller{
             $post = $this->input->post();
             $check = $this->CategoryModel->add_category($post);
             if($check){
-                $this->session->set_flashdata('successMsg', 'Data inserted');
+                $this->session->set_flashdata('successMsg', 'Category added successfully');
                 redirect('category');
             }
         }

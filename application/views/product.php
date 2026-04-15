@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); 
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 if($this->session->userdata('pro_id')!=''){
     $pro_id = $this->session->userdata('pro_id');
 }
@@ -17,25 +17,26 @@ else{
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <base href="<?php echo base_url(); ?>">
-    <!-- App favicon -->
+
     <?php $this->load->view('links'); ?>
 
 </head>
 
 <?php $this->load->view('header'); ?>
-<!-- Left Sidebar End -->
-
-
-
-<!-- ============================================================== -->
-<!-- Start right Content here -->
-<!-- ============================================================== -->
+ 
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
             <?php if($this->session->flashdata('successMsg')){
                 ?>
                 <div class="alert alert-success">
+                    <?php echo $this->session->flashdata('successMsg'); ?>
+                </div>
+                <?php
+            } ?>
+            <?php if($this->session->flashdata('errorMsg')){
+                ?>
+                <div class="alert alert-danger">
                     <?php echo $this->session->flashdata('successMsg'); ?>
                 </div>
                 <?php

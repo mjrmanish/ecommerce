@@ -34,9 +34,14 @@ class Product extends CI_Controller{
             $result = $this->ProductModel->add_product($post);
             if($result){
                 if($this->session->userdata('pro_id') != ''){
-                    // $this->session->unset_userdata('pro_id');
-                    $this->session->sess_destroy();
+                    $this->session->unset_userdata('pro_id');
+                    // $this->session->sess_destroy();
                 }
+                $this->session->set_flashdata('successMsg', 'Product added successfully');
+                redirect('Product');
+            }
+            else{
+                $this->session->set_flashdata('errorMsg', 'Failed to add product');
                 redirect('Product');
             }
          }

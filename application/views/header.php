@@ -15,23 +15,23 @@
                         <div class="navbar-brand-box">
                             <a href="Dashboard.php" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <!-- <img src="assets/images/logo-dark.png" alt="logo-sm-dark" height="24"> -->
-                                     <h1>MJR</h1>
+                                    <img src="assets/images/logo-dark.png" alt="logo-sm-dark" height="24">
+                                     <!-- <h1>MJR</h1> -->
                                 </span>
                                 <span class="logo-lg">
-                                    <!-- <img src="assets/images/logo-sm-dark.png" alt="logo-dark" height="25"> -->
-                                     <h1>MJR</h1>
+                                    <img src="assets/images/logo-sm-dark.png" alt="logo-dark" height="25">
+                                     <!-- <h1>MJR</h1> -->
                                 </span>
                             </a>
 
                             <a href="Dashboard.php" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <!-- <img src="assets/images/logo-light.png" alt="logo-sm-light" height="24"> -->
-                                     <h1>MJR</h1>
+                                    <img src="assets/images/logo-light.png" alt="logo-sm-light" height="24">
+                                     <!-- <h1>MJR</h1> -->
                                 </span>
                                 <span class="logo-lg">
-                                    <!-- <img src="assets/images/logo-sm-light.png" alt="logo-light" height="25"> -->
-                                     <h1>MJR</h1>
+                                    <img src="assets/images/logo-sm-light.png" alt="logo-light" height="25">
+                                     <!-- <h1>MJR</h1> -->
                                 </span>
                             </a>
                         </div>
@@ -271,23 +271,23 @@
                  <div class="navbar-brand-box">
                     <a href="index.html" class="logo logo-dark">
                         <span class="logo-sm">
-                            <!-- <img src="assets/images/logo-sm-dark.png" alt="logo-sm-dark" height="24"> -->
-                             <h1>MJR</h1>
+                            <img src="assets/images/logo-sm-dark.png" alt="logo-sm-dark" height="24">
+                             <!-- <h1>MJR</h1> -->
                         </span>
                         <span class="logo-lg">
-                            <!-- <img src="assets/images/logo-dark.png" alt="logo-dark" height="22"> -->
-                             <h1>MJR</h1>
+                            <img src="assets/images/logo-dark.png" alt="logo-dark" height="22">
+                             <!-- <h1>MJR</h1> -->
                         </span>
                     </a>
 
                     <a href="index.html" class="logo logo-light">
                         <span class="logo-sm">
-                            <!-- <img src="assets/images/logo-sm-light.png" alt="logo-sm-light" height="24"> -->
-                             <h1>MJR</h1>
+                            <img src="assets/images/logo-sm-light.png" alt="logo-sm-light" height="24">
+                             <!-- <h1>MJR</h1> -->
                         </span>
                         <span class="logo-lg">
-                            <!-- <img src="assets/images/logo-light.png" alt="logo-light" height="22"> -->
-                             <h1>MJR</h1>
+                            <img src="assets/images/logo-light.png" alt="logo-light" height="22">
+                             <!-- <h1>MJR</h1> -->
                         </span>
                     </a>
                 </div>
@@ -388,19 +388,14 @@
                                     <span>Category</span>
                                 </a>
                             </li>
-
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="uim uim-comment-message"></i>
                                     <span>Settings</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="settings/pincode">Pinconde</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="true">
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="settings/pincode">Pincode</a></li>
                                     <li><a href="settings/banner">Banner</a></li>
-                                </ul>
-                                <ul class="sub-menu" aria-expanded="true">
                                     <li><a href="product">Product</a></li>
                                 </ul>
                             </li>

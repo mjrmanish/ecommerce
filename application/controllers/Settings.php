@@ -14,7 +14,7 @@ class Settings extends CI_Controller{
             $post = $this->input->post();
             $check = $this->SettingsModel->add_pincode($post);
             if($check){
-                $this->session->set_flashdata('successMsg', 'Data inserted');
+                $this->session->set_flashdata('successMsg', 'Pincode added successfully');
                 redirect('settings/pincode');
             }
         }
@@ -36,7 +36,7 @@ class Settings extends CI_Controller{
             $post['bann_image'] = $this->upload->data('file_name');
             $check = $this->SettingsModel->add_banner($post);
             if($check){
-                $this->session->set_flashdata('successMsg', 'Data inserted');
+                $this->session->set_flashdata('successMsg', 'Banner added successfully');
                 redirect('settings/banner');
             }
         }

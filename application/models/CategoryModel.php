@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script allowed');
 
 class CategoryModel extends CI_Model{
     public function add_category($post){
-        $post['added_on'] = date('d M, Y');
         $post['cate_id'] = mt_rand(11111, 99999);
         $q = $this->db->insert('mjr_category', $post);
         if($q){
