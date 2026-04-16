@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
+ $pro_id = '';
 if($this->session->userdata('pro_id')!=''){
     $pro_id = $this->session->userdata('pro_id');
 }
@@ -12,7 +13,7 @@ else{
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Tocly - Admin & Dashboard Template</title>
+    <title>MJR - Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
