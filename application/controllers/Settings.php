@@ -29,7 +29,7 @@ class Settings extends CI_Controller{
         $this->form_validation->set_rules('status', 'status', 'required|trim');
         if($this->form_validation->run()){
             $post = $this->input->post();
-            $config['upload_path'] = './upload';
+            $config['upload_path'] = './upload/banner/';
             $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $this->load->library('upload', $config);
             $this->upload->do_upload('bann_image');

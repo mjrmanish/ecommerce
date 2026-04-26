@@ -9,8 +9,8 @@ class Home extends CI_Controller{
 
 public function index(){
     $data['banner'] = $this->HomeModel->get_banner();
-    // print_r($data['banner']);
-    // die;
+    $data['category'] = $this->HomeModel->get_category();
+    $data['product'] = $this->HomeModel->get_product();
     $this->load->view('frontend/index', $data);
 }
 }

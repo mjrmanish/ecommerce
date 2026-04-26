@@ -13,5 +13,25 @@ class HomeModel extends CI_Model{
         }
     }
 
+    public function get_category(){
+        $q = $this->db->where('status', '1')->get('mjr_category');
+        if($q->num_rows()){
+            return $q->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function get_product(){
+        $q = $this->db->where('status', '1')->get('mjr_product');
+        if($q->num_rows()){
+            return $q->result();
+        }
+        else{
+            return false;
+        }
+    }
+
 }
 ?>

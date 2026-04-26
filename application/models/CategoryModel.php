@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script allowed');
 
 class CategoryModel extends CI_Model{
+    
     public function add_category($post){
         $post['cate_id'] = mt_rand(11111, 99999);
         $q = $this->db->insert('mjr_category', $post);
@@ -17,6 +18,9 @@ class CategoryModel extends CI_Model{
         $q = $this->db->where(['status'=>1, 'parent_id'=>''])->get('mjr_category');
         if($q->num_rows()){
             return $q->result();
+        }
+        else{
+            return false;
         }
     }
     public function get_sub_cate($cate_id){

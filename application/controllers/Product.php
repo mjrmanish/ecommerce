@@ -25,8 +25,8 @@ class Product extends CI_Controller{
 
          if($this->form_validation->run()){
             $post = $this->input->post();
-            $config['upload_path'] = './upload/';
-            $config['allowed_types'] = '*';
+            $config['upload_path'] = './upload/product/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $this->load->library('upload', $config);
             $this->upload->do_upload('pro_main_image');
             $data = $this->upload->data();

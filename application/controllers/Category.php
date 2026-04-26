@@ -11,6 +11,11 @@ class Category extends CI_Controller{
         $this->form_validation->set_rules('status', 'status', 'required|trim');
         if($this->form_validation->run()){
             $post = $this->input->post();
+            $config['upload_path'] = './upload/category/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('cate_image');
+            $post['cate_image'] = $this->upload->data('file_name'); 
             $check = $this->CategoryModel->add_category($post);
             if($check){
                 $this->session->set_flashdata('successMsg', 'Category added successfully');

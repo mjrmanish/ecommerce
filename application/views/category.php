@@ -83,7 +83,13 @@
                                                         <?php echo form_error('status', '<div class="text-danger">*', '</div>') ?>
                                                     </div>
                                                 </div>
-                                                 
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3">
+                                                        <input type="file" class="form-control" name="cate_image"  id="cat_img" placeholder="Category Image">
+                                                        <label for="cat_img">Category Image</label>
+                                                        <!-- <?php echo form_error('cate_image', '<div class="text-danger">*', '</div>') ?> -->
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div>
                                                 <button type="submit" class="btn btn-primary w-md">Submit</button>
