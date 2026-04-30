@@ -7,12 +7,18 @@ class Home extends CI_Controller{
         $this->load->model('HomeModel');
     }
 
-public function index(){
-    $data['banner'] = $this->HomeModel->get_banner();
-    $data['category'] = $this->HomeModel->get_category();
-    $data['product'] = $this->HomeModel->get_product();
-    $this->load->view('frontend/index', $data);
-}
+    public function index(){
+        $data['banner'] = $this->HomeModel->get_banner();
+        $data['category'] = $this->HomeModel->get_category();
+        $data['product'] = $this->HomeModel->get_product();
+        $this->load->view('frontend/index', $data);
+    }
+
+    public function product_details($slug){
+        $table = "mjr_product";
+        $product_details['product'] = $this->HomeModel->get_row_details(array('slug'=>$slug, 'status'=>'1'), $table);
+        $this->load->view('frontend/product-details', $product_details);
+    }
 }
 
 
