@@ -12,7 +12,11 @@ class Register extends CI_Controller{
         $this->form_validation->set_rules('password', 'password', 'required|trim|min_length[6]');
         if($this->form_validation->run()){
             $post = $this->input->post();
-            $this->RegisterModel->register($post);
+            $check = $this->RegisterModel->register($post);
+            if($check){
+                $this->session->set_flashdata('succMsg','User Register Successfully. Please Login');
+                redirect('Login');
+            }
         }
         else{
             $this->load->view('frontend/register');

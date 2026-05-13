@@ -55,3 +55,6 @@ $route['translate_uri_dashes'] = TRUE;
 
 
 $route['product/(:any)'] = 'home/product_details/$1';
+$route['category/(:any)'] = 'product/product_by_cate/$1';
+$route['category/(:any)/(:any)'] = 'product/product_by_cate/$1/$2';
+

@@ -26,6 +26,17 @@
             <div class="container">
                <div class="row justify-content-center">
                   <div class="col-xl-6 col-lg-6 col-md-8">
+                     <?php if($this->session->flashdata('succMsg')){?>
+                        <div class = "alert alert-success">
+                            <?=$this->session->flashdata('succMsg')?>
+                        </div>
+                     <?php }?>
+                     <?php if($this->session->flashdata('errMsg')){?>
+                        <div class = "alert alert-danger">
+                            <?=$this->session->flashdata('errMsg')?>
+                        </div>
+                     <?php }?>
+                     <?=form_open()?>
                      <div class="tp-login-wrapper border mt-4">
                         <div class="tp-login-top text-center mb-30">
                            <h3 class="tp-login-title">Login to MJR.</h3>
@@ -34,7 +45,8 @@
                         <div class="tp-login-input-wrapper">
                            <div class="tp-login-input-box">
                               <div class="tp-login-input">
-                                 <input id="email" type="email" placeholder="mjr@mail.com">
+                                 <input id="email" type="email" name="email" placeholder="mjr@mail.com">
+                                 <?=form_error('email', '<p class="text-danger">*', '</p>')?>
                               </div>
                               <div class="tp-login-input-title">
                                  <label for="email">Your Email</label>
@@ -42,7 +54,8 @@
                            </div>
                            <div class="tp-login-input-box">
                               <div class="tp-login-input">
-                                 <input id="tp_password" type="password" placeholder="Min. 6 character">
+                                 <input id="tp_password" type="password" name="password" placeholder="Min. 6 character">
+                                 <?=form_error('password', '<p class="text-danger">*', '</p>')?>
                               </div>
                               <div class="tp-login-input-eye" id="password-show-toggle">
                                  <span id="open-eye" class="open-eye">
@@ -68,18 +81,19 @@
                            </div>
                         </div>
                         <div class="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">
-                           <div class="tp-login-remeber">
+                           <!-- <div class="tp-login-remeber">
                               <input id="remeber" type="checkbox">
                               <label for="remeber">Remember me</label>
                            </div>
                            <div class="tp-login-forgot">
                               <a href="forgot.html">Forgot Password?</a>
-                           </div>
+                           </div> -->
                         </div>
                         <div class="tp-login-bottom">
-                           <a href="profile.html" class="tp-login-btn w-100">Login</a>
+                           <button type="submit" class="tp-login-btn w-100">Login</button>
                         </div>
                      </div>
+                     <?=form_close()?>
                   </div>
                </div>
             </div>

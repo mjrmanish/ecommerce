@@ -28,14 +28,14 @@
                     <div class="col-xl-6 col-lg-6 col-md-8">
                         <div class="tp-login-wrapper border mt-4">
                             <div class="tp-login-top text-center mb-30">
-                                <h3 class="tp-login-title">Sign Up MJR.</h3>
+                                <h3 class="tp-login-title">Sign up for MJR.</h3>
                                 <p>Already have an account?  <span><a href="login">Sign In</a></span></p>
                             </div>
                             <div class="tp-login-input-wrapper">
                                 <div class="tp-login-input-box">
                                     <div class="tp-login-input">
                                        <input id="name" type="text" name="name" placeholder="Manish Kushwaha">
-                                       <?=form_error('name')?>
+                                       <?=form_error('name', '<p class="text-danger">*', '</p>')?>
                                     </div>
                                     <div class="tp-login-input-title">
                                        <label for="name">Your Name</label>
@@ -44,7 +44,7 @@
                                 <div class="tp-login-input-box">
                                     <div class="tp-login-input">
                                        <input id="email" type="email" name="email" placeholder="mjr@mail.com">
-                                       <?=form_error('email')?>
+                                       <?=form_error('email', '<p class="text-danger">*', '</p>')?>
                                     </div>
                                     <div class="tp-login-input-title">
                                        <label for="email">Your Email</label>
@@ -53,7 +53,7 @@
                                 <div class="tp-login-input-box">
                                     <div class="tp-login-input">
                                        <input id="tp_password" type="password" name="password" placeholder="Min. 6 character">
-                                       <?=form_error('password')?>
+                                       <?=form_error('password', '<p class="text-danger">*', '</p>')?>
                                     </div>
                                     <div class="tp-login-input-eye" id="password-show-toggle">
                                         <span id="open-eye" class="open-eye">

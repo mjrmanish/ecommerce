@@ -24,7 +24,7 @@ class HomeModel extends CI_Model{
     }
 
     public function get_category(){
-        $q = $this->db->where('status', '1')->order_by('id', 'asc')->get('mjr_category');
+        $q = $this->db->where(['status'=>1, 'parent_id'=>''])->order_by('id', 'asc')->get('mjr_category');
         if($q->num_rows()){
             return $q->result();
         }
@@ -47,6 +47,36 @@ class HomeModel extends CI_Model{
         $category_name = $this->db->where(array('cate_id'=>$cate_id, 'status'=>'1'))->order_by('id', 'asc')->get('mjr_category');
         if($category_name->num_rows()){
             return $category_name->row();
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function get_category_nav(){
+        $q = $this->db->select('cate_id, cate_name, parent_id, status, slug')->where(['status'=>1, 'parent_id'=>''])->order_by('id', 'asc')->get('mjr_category');
+        if($q->num_rows()){
+            return $q->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function get_subcate_check($cate_id){
+        $q = $this->db->where(['status'=>1, 'parent_id'=>$cate_id])->get('mjr_category');
+        if($q->num_rows()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function get_subcateg($cate_id){
+        $q = $this->db->where(['status'=>1, 'parent_id'=>$cate_id])->get('mjr_category');
+        if($q->num_rows()){
+            return $q->result();
         }
         else{
             return false;

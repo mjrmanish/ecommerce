@@ -5,6 +5,7 @@ class CategoryModel extends CI_Model{
     
     public function add_category($post){
         $post['cate_id'] = mt_rand(11111, 99999);
+        $post['slug'] = $this->slug($post['cate_name']);
         $q = $this->db->insert('mjr_category', $post);
         if($q){
             return true;
@@ -32,6 +33,11 @@ class CategoryModel extends CI_Model{
              }
              echo $output;
         }
+    }
+
+    public function slug($cate_name){
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $cate_name)));
+        return $slug;
     }
 }
 

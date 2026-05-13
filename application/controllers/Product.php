@@ -7,6 +7,8 @@ class Product extends CI_Controller{
         $this->load->model('CategoryModel');
         $this->load->model('ProductModel');
     }
+
+
     public function index(){
         $this->form_validation->set_rules('pro_id','Product ID', 'required|trim');
         $this->form_validation->set_rules('category','Category', 'required|trim');
@@ -49,6 +51,18 @@ class Product extends CI_Controller{
             $data['categories'] = $this->CategoryModel->all_category();
             $this->load->view('product', $data);
          }
+    }
+
+    public function product_by_cate($slug, $slug2 =''){
+        if(!empty($slug) && !empty($slug2)){
+            $slug = $slug2;
+        }
+        else{
+            $slug = $slug;
+        }
+        $cate_id = $this->ProductModel->fetch_cate($slug);
+        $prod['product'] = $this->ProductModel->fetch_product($cate_id);
+        $this->load->view('shop', $prod);
     }
 }
 
